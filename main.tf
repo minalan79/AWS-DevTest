@@ -25,7 +25,7 @@ resource "aws_instance" "amazon_linux" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type
   key_name = "ec2-keypair"
-  security_groups = ["sg-0f2fc32c9a7657d7e"]
+  vpc_security_group_ids = ["sg-0f2fc32c9a7657d7e"]
 
   tags = {
     Name = var.instance_name
