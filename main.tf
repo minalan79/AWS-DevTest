@@ -24,6 +24,7 @@ data "aws_ami" "amazon_linux" {
 resource "aws_instance" "amazon_linux" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type
+  key_name = "ec2-keypair"
 
   tags = {
     Name = var.instance_name
