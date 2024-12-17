@@ -13,6 +13,6 @@ variable "instance_type" {
 
 variable "instance_name" {
   description = "EC2 instance name"
-  default     = "PostgreSQL_001"
+  default     = "DevServer_001"
 }
 
