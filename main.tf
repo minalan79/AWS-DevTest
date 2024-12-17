@@ -57,7 +57,7 @@ resource "aws_vpc_security_group_egress_rule" "allow_egress_All" {
 resource "aws_instance" "amazon_linux" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type
-  key_name = "ec2-keypair"
+  key_name = "EC2-keypair"
   vpc_security_group_ids = [aws_security_group.DevServer_sg.id]
 
   tags = {
