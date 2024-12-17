@@ -33,7 +33,7 @@ resource "aws_security_group" "DevServer_sg" {
 
 resource "aws_vpc_security_group_ingress_rule" "allow_ingress_SSH" {
   security_group_id = aws_security_group.DevServer_sg.id
-  cidr_ipv4         = "10.0.0.0/8"
+  cidr_ipv4         = "0.0.0.0/0"
   from_port         = 22
   ip_protocol       = "tcp"
   to_port           = 22
@@ -41,7 +41,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ingress_SSH" {
 
 resource "aws_vpc_security_group_ingress_rule" "allow_ingress_HTTP" {
   security_group_id = aws_security_group.DevServer_sg.id
-  cidr_ipv4         = "10.0.0.0/8"
+  cidr_ipv4         = "0.0.0.0/0"
   from_port         = 443
   ip_protocol       = "tcp"
   to_port           = 443
@@ -49,7 +49,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ingress_HTTP" {
 
 resource "aws_vpc_security_group_egress_rule" "allow_egress_All" {
   security_group_id = aws_security_group.DevServer_sg.id
-  cidr_ipv4         = "10.0.0.0/8"
+  cidr_ipv4         = -1
   from_port         = -1
   ip_protocol       = -1
   to_port           = -1
