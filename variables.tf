@@ -18,7 +18,7 @@ variable "instance_name" {
 
 variable "redis_type" {
   description = "Redis instance type"
-  default     = "cache.t2micro"
+  default     = "cache.t3.micro"
 }
 
 variable "redis_parameter_group_name" {
