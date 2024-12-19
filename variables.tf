@@ -16,3 +16,12 @@ variable "instance_name" {
   default     = "DevServer_001"
 }
 
+variable "redis_type" {
+  description = "Redis instance type"
+  default     = "cache.t2micro"
+}
+
+variable "redis_parameter_group_name" {
+  description = "Redis parameter group name"
+  default     = "default.redis7"
+}
