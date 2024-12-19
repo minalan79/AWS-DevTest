@@ -64,3 +64,12 @@ resource "aws_instance" "amazon_linux" {
     Name = var.instance_name
   }
 }
+
+resource "aws_elasticache_cluster" "redis" {
+  cluster_id           = "redisCluster-001"
+  engine               = "redis"
+  node_type            = var.redis_type
+  num_cache_nodes      = 1
+  parameter_group_name = var.redis_parameter_group_name
+  port                 = 6379
+}
