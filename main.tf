@@ -66,7 +66,7 @@ resource "aws_instance" "amazon_linux" {
 }
 
 resource "aws_elasticache_cluster" "redis" {
-  cluster_id           = "redisCluster-001"
+  cluster_id           = "redis-cluster-001"
   engine               = "redis"
   node_type            = var.redis_type
   num_cache_nodes      = 1
