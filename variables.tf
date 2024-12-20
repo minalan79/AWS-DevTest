@@ -28,5 +28,5 @@ variable "redis_parameter_group_name" {
 
 variable "security_group_names" {
   description = "List of security groups"
-  default = ["DevServer-sg", "redisCache-sg"]
+  default = ["devServer-sg", "redisCache-sg"]
 }

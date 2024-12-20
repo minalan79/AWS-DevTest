@@ -25,7 +25,7 @@ resource "aws_instance" "amazon_linux" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type
   key_name = "EC2-keypair"
-  vpc_security_group_ids = [aws_security_group.DevServer_sg.id]
+  vpc_security_group_ids = [ aws_security_group.sgs["devServer-sg"].id ]
 
   tags = {
     Name = var.instance_name
@@ -39,4 +39,5 @@ resource "aws_elasticache_cluster" "redis" {
   num_cache_nodes      = 1
   parameter_group_name = var.redis_parameter_group_name
   port                 = 6379
+  security_group_ids = [ aws_security_group.sgs["redisCache-sg"].id ]
 }
