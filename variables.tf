@@ -25,3 +25,8 @@ variable "redis_parameter_group_name" {
   description = "Redis parameter group name"
   default     = "default.redis7"
 }
+
+variable "security_group_names" {
+  description = "List of security groups"
+  default = ["DevServer-sg", "redisCache-sg"]
+}
