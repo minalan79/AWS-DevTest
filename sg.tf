@@ -41,3 +41,11 @@ resource "aws_vpc_security_group_egress_rule" "allow_egress_All" {
   ip_protocol       = -1
   to_port           = -1
 }
+
+resource "aws_vpc_security_group_ingress_rule" "allow_ingress_Redis" {
+  security_group_id = aws_security_group.sgs["redisCache-sg"].id
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 6379
+  ip_protocol       = tcp
+  to_port           = 6379
+}
