@@ -43,7 +43,10 @@ resource "aws_vpc_security_group_egress_rule" "allow_egress_All" {
 }
 
 resource "aws_vpc_security_group_ingress_rule" "allow_ingress_Redis" {
-  security_group_id = aws_security_group.sgs["redisCache-sg"].id
+  for_each = {
+    for sg_name, sg_resource in aws_security_group.sgs : sg_name => sg_resource.id
+  }
+  security_group_id = each.value
   cidr_ipv4         = "0.0.0.0/0"
   from_port         = 6379
   ip_protocol       = "tcp"
