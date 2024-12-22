@@ -52,3 +52,11 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ingress_Redis" {
   ip_protocol       = "tcp"
   to_port           = 6379
 }
+
+resource "aws_vpc_security_group_ingress_rule" "allow_ingress_postgreDB" {
+  security_group_id = aws_security_group.sgs["postgreDB-sg"].id
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 5432
+  ip_protocol       = "tcp"
+  to_port           = 5432
+}

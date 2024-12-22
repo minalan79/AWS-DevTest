@@ -28,5 +28,11 @@ variable "redis_parameter_group_name" {
 
 variable "security_group_names" {
   description = "List of security groups"
-  default = ["devServer-sg", "redisCache-sg"]
+  default = ["devServer-sg", "redisCache-sg", "postgreDB-sg"]
+}
+
+
+variable "rds_password" {
+  description = "rds password"
+  sensitive = true
 }
