@@ -55,5 +55,6 @@ resource "aws_db_instance" "postgreDB" {
   vpc_security_group_ids = [ aws_security_group.sgs["postgreDB-sg"].id ]
   port                   = 5432
   multi_az               = false
-  identifier             = var.rds_name 
+  identifier             = var.rds_name
+  apply_immediately      = true 
 }
