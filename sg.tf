@@ -31,6 +31,17 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ingress_HTTP" {
   to_port           = 443
 }
 
+resource "aws_vpc_security_group_ingress_rule" "allow_ingress_nodeAPI" {
+  for_each = {
+    for sg_name, sg_resource in aws_security_group.sgs : sg_name => sg_resource.id
+  }
+  security_group_id = each.value
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 8000
+  ip_protocol       = "tcp"
+  to_port           = 8000
+}
+
 resource "aws_vpc_security_group_egress_rule" "allow_egress_All" {
   for_each = {
     for sg_name, sg_resource in aws_security_group.sgs : sg_name => sg_resource.id
