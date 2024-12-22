@@ -39,5 +39,5 @@ variable "rds_password" {
 
 variable "rds_name" {
   description = "rds name"
-  default = "postgreDB_001"
+  default = "postgredb-001"
 }
