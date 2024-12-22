@@ -34,5 +34,4 @@ variable "security_group_names" {
 
 variable "rds_password" {
   description = "rds password"
-  sensitive = true
 }
