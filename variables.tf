@@ -34,4 +34,10 @@ variable "security_group_names" {
 
 variable "rds_password" {
   description = "rds password"
+  sensitive   = true
+}
+
+variable "rds_name" {
+  description = "rds name"
+  default = "postgreDB_001"
 }
