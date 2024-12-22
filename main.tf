@@ -5,24 +5,25 @@ provider "aws" {
   region = var.region
 }
 
-data "aws_ami" "amazon_linux" {
-  most_recent = true
+# data "aws_ami" "amazon_linux" {
+#   most_recent = true
 
-  filter {
-    name   = "name"
-    values = ["al2023-ami-2023.6.20241010.0-kernel-6.1-x86_64"]
-  }
+#   filter {
+#     name   = "name"
+#     values = ["al2023-ami-2023.6.20241010.0-kernel-6.1-x86_64"]
+#   }
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
+#   filter {
+#     name   = "virtualization-type"
+#     values = ["hvm"]
+#   }
 
-  owners = ["137112412989"] # Canonical
-}
+#   owners = ["137112412989"] # Canonical
+# }
 
 resource "aws_instance" "amazon_linux" {
-  ami           = data.aws_ami.amazon_linux.id
+  # ami           = data.aws_ami.amazon_linux.id
+  ami = "ami-0583d8c7a9c35822c"
   instance_type = var.instance_type
   key_name = "EC2-keypair"
   vpc_security_group_ids = [ aws_security_group.sgs["devServer-sg"].id ]
