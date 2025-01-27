@@ -23,9 +23,10 @@ provider "aws" {
 
 resource "aws_instance" "amazon_linux" {
   # ami           = data.aws_ami.amazon_linux.id
-  ami = "ami-0583d8c7a9c35822c"
+  # ami = "ami-0583d8c7a9c35822c"
+  ami = "ami-0ac4dfaf1c5c0cce9"
   instance_type = var.instance_type
-  key_name = "EC2-keypair"
+  # key_name = "EC2-keypair"
   vpc_security_group_ids = [ aws_security_group.sgs["devServer-sg"].id ]
 
   tags = {
