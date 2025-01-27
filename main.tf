@@ -33,28 +33,28 @@ resource "aws_instance" "amazon_linux" {
   }
 }
 
-resource "aws_elasticache_cluster" "redis" {
-  cluster_id           = "redis-cluster-001"
-  engine               = "redis"
-  node_type            = var.redis_type
-  num_cache_nodes      = 1
-  parameter_group_name = var.redis_parameter_group_name
-  port                 = 6379
-  security_group_ids   = [ aws_security_group.sgs["redisCache-sg"].id ]
-}
+# resource "aws_elasticache_cluster" "redis" {
+#   cluster_id           = "redis-cluster-001"
+#   engine               = "redis"
+#   node_type            = var.redis_type
+#   num_cache_nodes      = 1
+#   parameter_group_name = var.redis_parameter_group_name
+#   port                 = 6379
+#   security_group_ids   = [ aws_security_group.sgs["redisCache-sg"].id ]
+# }
 
-resource "aws_db_instance" "postgreDB" {
-  allocated_storage      = 10
-  db_name                = "POSTGRESQL01"
-  engine                 = "postgres"
-  instance_class         = "db.t4g.micro"
-  username               = "postgreAdmin"
-  password               = var.rds_password
-  skip_final_snapshot    = true
-  storage_type           = "gp2"
-  vpc_security_group_ids = [ aws_security_group.sgs["postgreDB-sg"].id ]
-  port                   = 5432
-  multi_az               = false
-  identifier             = var.rds_name
-  apply_immediately      = true 
-}
+# resource "aws_db_instance" "postgreDB" {
+#   allocated_storage      = 10
+#   db_name                = "POSTGRESQL01"
+#   engine                 = "postgres"
+#   instance_class         = "db.t4g.micro"
+#   username               = "postgreAdmin"
+#   password               = var.rds_password
+#   skip_final_snapshot    = true
+#   storage_type           = "gp2"
+#   vpc_security_group_ids = [ aws_security_group.sgs["postgreDB-sg"].id ]
+#   port                   = 5432
+#   multi_az               = false
+#   identifier             = var.rds_name
+#   apply_immediately      = true 
+# }
